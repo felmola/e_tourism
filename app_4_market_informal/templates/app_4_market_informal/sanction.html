@@ -15,7 +15,13 @@ $(document).ready(function(){
     $("#seller_report").val();
   });
 });
-</
+
+$(document).ready(function(){
+  $("#id_next").click(function()){
+    $("#seller_report").val();
+    };
+});
+
 </script>
 <script>
 $(document).ready(function() {
@@ -104,14 +110,19 @@ $(document).ready(function() {
                 <td>
                     <input id = "id_check" name ="report_seller" type="checkbox" value = {{p.id_in_group}} />
                 </td>
-        {% else %}
-        <p>No player used a commercial practice so you can't report one</p>
+        </tbody>
+</table>
+    {% next_button %}
         {% endif %}
+    {% else %}
+        <p>No player used a commercial practice so you can't report one</p>
+        <button id = "id_next" class="otree-btn-next btn btn-primary next-button otree-next-button">Next</button>
+            <input id = "id_hidden" type ="hidden" name ="report_seller" value = 0 />
+
     {% endif %}
 {% endfor %}
-        </tbody>
-        </table>
 
-    {% next_button %}
+
+
 {{ form.report_seller.errors }}
 {% endblock %}
